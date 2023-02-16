@@ -3,17 +3,74 @@
     <meta charset="UTF-8">
     <title>Pygmalion JSON character creator</title>
 <style>
-body { text-align: center; font-family: helvetica; padding: 40px; color: #333 }
-p { max-width: 800px; margin-left: auto; margin-right: auto }
-textarea {max-width: 665px; width:100%}
+body {
+  font-family: 'Roboto', sans-serif;
+  padding: 40px;
+  color: #333;
+  max-width: 665px;
+  width:100%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #f7f7f7;
+}
+
+p { 
+  font-size: 16px;
+  color: #1a1a1a;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+textarea {
+  font-size: 14px;
+  padding: 10px;
+  border-radius: 15px;
+  border-width: 1px;
+  max-width: 665px;
+  width:100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+input {
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 15px;
+  border-width: 1px;
+  background-color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  text-align: center;
+  margin: 10px;
+}
+
+input:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+button {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 15px;
+  border-width: 1px;
+  background-color: #28a745;
+  color: #ffffff;
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+button:hover {
+  background-color: #229954;
+}
 </style>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 
 <body>
-    <h3>Pygmalion JSON character creator</h3>
-    <br/>
-    <p>Enter your character settings and click Submit to generate a JSON file. Save the output file with a .json extension (e.g. Character.json) and place it in the characters/ folder of <a href="https://github.com/oobabooga/text-generation-webui">the web UI</a> to use it.</p>
+    <h2>Pygmalion JSON character creator</h2>
+    <p>Enter your character settings and click on "Download JSON" to generate a JSON file.</p>
+    <p>To use it, place it in the "characters" folder of the <a href="https://github.com/oobabooga/text-generation-webui">web UI</a> or upload it directly from the interface.</p>
     <p>This script runs locally on your computer, so your character data is not sent to any server.</p>
     <p>You can share your JSON with other people using <a href="https://catbox.moe/">catbox</a>.</p>
     <br/>
@@ -41,7 +98,9 @@ You: That sounds great!
 Chiharu Yamada: Yeah, it's really fun. I'm lucky to be able to do this as a job.</textarea>
         <br/>
         <br/>
-        <input type="submit" value="Submit">
+        <div style="text-align: center">
+        <input type="submit" value="Download JSON">
+        </div>
     </form>
     <p>Output:</p>
     <textarea id="output" rows="10"></textarea>
@@ -58,8 +117,18 @@ Chiharu Yamada: Yeah, it's really fun. I'm lucky to be able to do this as a job.
                 world_scenario: document.querySelector('[name="world_scenario"]').value,
                 example_dialogue: document.querySelector('[name="example_dialogue"]').value
             };
+            var output_json = JSON.stringify(output);
+            document.querySelector('#output').value = output_json;
 
-            document.querySelector('#output').value = JSON.stringify(output);
+            var filename = document.querySelector('[name="char_name"]').value + ".json";
+            var element = document.createElement('a');
+            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(output_json));
+            element.setAttribute('download', filename);
+            element.style.display = 'none';
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
+
         });
     </script>
 </body>
