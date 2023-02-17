@@ -9,7 +9,7 @@
     "prompt": "Common sense questions and answers\n\nQuestion: \nFactual answer:",
     "prompt_gpt4chan": "-----\n--- 865467536\nInput text\n--- 865467537\n",
     "stop_at_newline": true,
-    "chat_prompt_size": 1200,
+    "chat_prompt_size": 1250,
     "chat_prompt_size_min": 0,
     "chat_prompt_size_max": 2048,
     "preset_pygmalion": "Pygmalion",
