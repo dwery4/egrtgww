@@ -1,5 +1,3 @@
-# --> Work in progress, this is just a sketch! <--
-
 # Preset Arena results
 
 Description of the experiment: [Preset Arena: 17,205 comparisons between 241 different presets.](https://www.reddit.com/r/LocalLLaMA/comments/14adfw2/preset_arena_17205_comparisons_between_241/)
@@ -19,7 +17,7 @@ Preset definitions: [presets](https://oobabooga.github.io/arena/presets.html)
 
 ## Dataset
 
-Soon
+https://huggingface.co/datasets/oobabooga/preset-arena
 
 ## Ranking the presets
 
