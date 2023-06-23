@@ -13,6 +13,8 @@ Some numbers:
 * Sorted by instruct performance: [instruct](https://oobabooga.github.io/arena/instruct.html)
 * Sorted by chat performance: [chat](https://oobabooga.github.io/arena/chat.html)
 
+Preset definitions: [presets](https://oobabooga.github.io/arena/presets.html)
+
 ## Dataset
 
 Soon
