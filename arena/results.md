@@ -67,7 +67,7 @@ To make things more robust, I have used the following procedure instead of calcu
 
 * take a random subsample containing 90% of votes
 * using that sample, calculate the elo scores for chat and instruct prompts separately
-* repeat 100 times
+* repeat 200 times
 * take the averages of the elo scores for each preset
 
 ### Comments
