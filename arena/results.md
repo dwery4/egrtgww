@@ -1,12 +1,14 @@
+# --> Work in progress, this is just a sketch! <--
+
 # Preset Arena results
 
 Description of the experiment: [Preset Arena: 17,205 comparisons between 241 different presets.](https://www.reddit.com/r/LocalLLaMA/comments/14adfw2/preset_arena_17205_comparisons_between_241/)
 
 Some numbers:
 
-* 6733 valid votes
-* 934 voting sessions
-* 203 users with usernames
+* 7215 valid votes
+* 951 voting sessions
+* 288 users with usernames
 
 ## Final results
 
@@ -48,7 +50,7 @@ def compute_bias_probability(outcomes, prior_alpha=1, prior_beta=1, _print=False
     return bias_probability
 ```
 
-A session was disconsidered if `bias_probability > 0.95`, which happened for 2.4% of all sessions.
+A session was disconsidered if `bias_probability > 0.99`, which happened for 0.6% of all sessions.
 
 ### Estimating the elo scores
 
