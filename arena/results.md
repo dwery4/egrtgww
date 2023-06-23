@@ -76,17 +76,17 @@ To make things more robust, I have used the following procedure instead of calcu
 
 1) I find that the chat presets are all kind of the same. It may be due to the chat prompts being too simple and short, causing presets with low top_p to be favored.
 
-2) 5 variations of the Mirostat preset were included. It turned out that `Mirostat-5` was better than the `Mirostat` preset originally included in text-generation-webui:
+2) 5 variations of the Mirostat preset were included. It turned out that `Mirostat-5` was a bit better than the `Mirostat` preset originally included in text-generation-webui:
 
-<table><tr><th>preset</th><th>params</th><th>elo score (chat)</th><th>elo score (instruct)</th><th>elo score (all)</th><th>matches (chat)</th><th>matches (instruct)</th></tr><tr><td>Mirostat-5</td><td>2</td><td>1026.5014937016579</td><td>1095.5957306337566</td><td>1061.0486121677072</td><td>30</td><td>22</td></tr><tr><td>Mirostat</td><td>1</td><td>987.4284290976724</td><td>1091.528754921891</td><td>1039.4785920097818</td><td>25</td><td>20</td></tr><tr><td>Mirostat-2</td><td>2</td><td>1058.6173333941947</td><td>1030.0263508768217</td><td>1044.3218421355082</td><td>27</td><td>25</td></tr><tr><td>Mirostat-3</td><td>2</td><td>979.0888416948233</td><td>1014.594027476248</td><td>996.8414345855356</td><td>28</td><td>30</td></tr><tr><td>Mirostat-4</td><td>2</td><td>1023.2718233979415</td><td>1009.3037137304021</td><td>1016.2877685641718</td><td>31</td><td>31</td></tr></table>
+<table><tr><th>preset</th><th>params</th><th>elo score (chat)</th><th>elo score (instruct)</th><th>elo score (all)</th><th>matches (chat)</th><th>matches (instruct)</th></tr><tr><td>Mirostat-5</td><td>2</td><td>1012.723756636154</td><td>1100.0171006055577</td><td>1056.3704286208558</td><td>36</td><td>23</td></tr><tr><td>Mirostat</td><td>1</td><td>993.0564327577029</td><td>1109.172602933306</td><td>1051.1145178455045</td><td>27</td><td>22</td></tr><tr><td>Mirostat-2</td><td>2</td><td>1067.8824770156248</td><td>1028.214156025321</td><td>1048.0483165204728</td><td>29</td><td>25</td></tr><tr><td>Mirostat-4</td><td>2</td><td>1031.9219927236945</td><td>1020.1965461643792</td><td>1026.059269444037</td><td>37</td><td>35</td></tr><tr><td>Mirostat-3</td><td>2</td><td>988.1664164954003</td><td>1021.2103791101517</td><td>1004.6883978027761</td><td>29</td><td>29</td></tr></table>
 
 3) Similarly, 5 Contrastive Search variations were included, `Contrastive Search-3` ended up being a bit better than the original `Contrastive Search`:
 
-<table><tr><th>preset</th><th>params</th><th>elo score (chat)</th><th>elo score (instruct)</th><th>elo score (all)</th><th>matches (chat)</th><th>matches (instruct)</th></tr><tr><td>Special-Contrastive Search-3</td><td>3</td><td>1081.6638160617522</td><td>1109.6104645202452</td><td>1095.6371402909986</td><td>26</td><td>19</td></tr><tr><td>Special-Contrastive Search</td><td>3</td><td>1082.8334196036967</td><td>1084.7923688591343</td><td>1083.8128942314156</td><td>29</td><td>29</td></tr><tr><td>Special-Contrastive Search-1</td><td>3</td><td>926.8246947947172</td><td>859.149252796177</td><td>892.986973795447</td><td>13</td><td>11</td></tr><tr><td>Special-Contrastive Search-4</td><td>3</td><td>766.2481498240295</td><td>792.4678047191803</td><td>779.3579772716049</td><td>31</td><td>18</td></tr><tr><td>Special-Contrastive Search-2</td><td>3</td><td>819.1460361418351</td><td>747.206551560756</td><td>783.1762938512956</td><td>21</td><td>24</td></tr></table>
+<table><tr><th>preset</th><th>params</th><th>elo score (chat)</th><th>elo score (instruct)</th><th>elo score (all)</th><th>matches (chat)</th><th>matches (instruct)</th></tr><tr><td>Special-Contrastive Search-3</td><td>3</td><td>1077.6702759297164</td><td>1115.8151721393688</td><td>1096.7427240345426</td><td>27</td><td>18</td></tr><tr><td>Special-Contrastive Search</td><td>3</td><td>1077.3415040295642</td><td>1095.4654729538931</td><td>1086.4034884917287</td><td>35</td><td>31</td></tr><tr><td>Special-Contrastive Search-1</td><td>3</td><td>899.7205727080627</td><td>851.8635177853589</td><td>875.7920452467108</td><td>16</td><td>10</td></tr><tr><td>Special-Contrastive Search-4</td><td>3</td><td>765.788679774467</td><td>790.9640810990088</td><td>778.3763804367379</td><td>33</td><td>19</td></tr><tr><td>Special-Contrastive Search-2</td><td>3</td><td>801.0156035678388</td><td>736.8621355164904</td><td>768.9388695421646</td><td>27</td><td>25</td></tr></table>
 
-4) Eta Sampling (another special technique), by itself, did not perform very well:
+4) Eta Sampling (another special technique), by itself, did not perform very well by itself (but it is present in other top-performing presets):
 
-<table><tr><th>preset</th><th>params</th><th>elo score (chat)</th><th>elo score (instruct)</th><th>elo score (all)</th><th>matches (chat)</th><th>matches (instruct)</th></tr><tr><td>Special-Eta Sampling</td><td>3</td><td>1016.2128130022467</td><td>1014.1492450072842</td><td>1015.1810290047654</td><td>28</td><td>23</td></tr></table>
+<table><tr><th>preset</th><th>params</th><th>elo score (chat)</th><th>elo score (instruct)</th><th>elo score (all)</th><th>matches (chat)</th><th>matches (instruct)</th></tr><tr><td>Special-Eta Sampling</td><td>3</td><td>1018.5269796896921</td><td>1016.4519009597249</td><td>1017.4894403247085</td><td>29</td><td>25</td></tr></table>
 
 5) The best overall preset, considering the average of the chat and instruct elo scores, was also perhaps the most obvious. I originally named it `simple-1` not expecting it to get anywhere:
 
@@ -115,16 +115,15 @@ For the purpose of including better presets in text-generation-webui, I removed 
 
 | Preset | New name |
 |------|---------|
-| simple-1 | |
-| random_preset_066 | Divine Intellect
-| starchat | |
-| random_preset_035 | Space Alien
-| random_preset_002 | Asterism
-| random_preset_183 | Titanic
-| Special-Contrastive Search-3 | |
-| random_preset_027 | Shortwave |
+| random_preset_066 | Divine Intellect |
 | random_preset_134 | Big O |
-| tfs-with-top-a |
+| simple-1 | |
+| random_preset_035 | Space Alien |
+| starchat | StarChat |
+| random_preset_183 | Titanic |
+| tfs-with-top-a | | 
+| random_preset_002 | Asterism |
+| Special-Contrastive Search-3 | Contrastive Search |
 
 #### Chat
 
@@ -132,6 +131,7 @@ For the purpose of including better presets in text-generation-webui, I removed 
 |------|---------|
 | random_preset_101 | Midnight Enigma |
 | random_preset_161 | Yara |
+| random_preset_120 | Shortwave |
 | Kobold-Godlike | |
 
 I took the liberty of giving gave some cheesy names for the new random presets.
@@ -146,9 +146,9 @@ In those 13 new presets, these are the sampling parameters that are present and 
      11 top_k
      11 repetition_penalty
       5 top_a
-      3 typical_p
       3 tfs
-      3 eta_cutoff
+      2 typical_p
+      2 eta_cutoff
       1 penalty_alpha
       1 epsilon_cutoff
       1 encoder_repetition_penalty
