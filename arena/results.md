@@ -72,7 +72,7 @@ To make things more robust, I have used the following procedure instead of calcu
 
 ### Comments
 
-1) I find that the chat presets are all kind of the same. It may be due to the chat prompts being too simple and short, causing presets with low top_p to be favored.
+1) I find that the top chat presets are all kind of the same. It may be due to the chat prompts being too simple and short, causing presets with low top_p to be favored.
 
 2) 5 variations of the Mirostat preset were included. It turned out that `Mirostat-5` was a bit better than the `Mirostat` preset originally included in text-generation-webui:
 
@@ -82,11 +82,11 @@ To make things more robust, I have used the following procedure instead of calcu
 
 <table><tr><th>preset</th><th>params</th><th>elo score (chat)</th><th>elo score (instruct)</th><th>elo score (all)</th><th>matches (chat)</th><th>matches (instruct)</th></tr><tr><td>Special-Contrastive Search-3</td><td>3</td><td>1077.6702759297164</td><td>1115.8151721393688</td><td>1096.7427240345426</td><td>27</td><td>18</td></tr><tr><td>Special-Contrastive Search</td><td>3</td><td>1077.3415040295642</td><td>1095.4654729538931</td><td>1086.4034884917287</td><td>35</td><td>31</td></tr><tr><td>Special-Contrastive Search-1</td><td>3</td><td>899.7205727080627</td><td>851.8635177853589</td><td>875.7920452467108</td><td>16</td><td>10</td></tr><tr><td>Special-Contrastive Search-4</td><td>3</td><td>765.788679774467</td><td>790.9640810990088</td><td>778.3763804367379</td><td>33</td><td>19</td></tr><tr><td>Special-Contrastive Search-2</td><td>3</td><td>801.0156035678388</td><td>736.8621355164904</td><td>768.9388695421646</td><td>27</td><td>25</td></tr></table>
 
-4) Eta Sampling (another special technique), by itself, did not perform very well by itself (but it is present in other top-performing presets):
+4) Eta Sampling (another special technique), by itself, did not perform very well (but its parameters are present in other top-performing presets):
 
 <table><tr><th>preset</th><th>params</th><th>elo score (chat)</th><th>elo score (instruct)</th><th>elo score (all)</th><th>matches (chat)</th><th>matches (instruct)</th></tr><tr><td>Special-Eta Sampling</td><td>3</td><td>1018.5269796896921</td><td>1016.4519009597249</td><td>1017.4894403247085</td><td>29</td><td>25</td></tr></table>
 
-5) The best overall preset, considering the average of the chat and instruct elo scores, was also perhaps the most obvious. I originally named it `simple-1` not expecting it to get anywhere:
+5) The best preset overall, considering the average of the chat and instruct elo scores, was also perhaps the most obvious. I originally named it `simple-1` not expecting it to get anywhere:
 
 ```
 temperature: 0.7
