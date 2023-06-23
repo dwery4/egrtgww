@@ -70,6 +70,8 @@ To make things more robust, I have used the following procedure instead of calcu
 * repeat 200 times
 * take the averages of the elo scores for each preset
 
+Additionally, I have not counted votes where both completions are identical.
+
 ### Comments
 
 1) I find that the top chat presets are all kind of the same. It may be due to the chat prompts being too simple and short, causing presets with low top_p to be favored.
